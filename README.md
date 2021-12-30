@@ -8,22 +8,39 @@ Depndencies
  - rails 5.2.6
  
  Setup
-    1- Clone the repo
+ 1- Clone the repo
+ <br>
+    
 ```$ git clone ```
-    2-Setup ENV or update database credentials in database.yml
-    3- Create database
-        ```$ rails db:create```
-    4- Migrate database
-        ```$ rails db:migrate```
-    5- Seed database 
-        ```$ rails db:seed```
-    6- run specs 
-        ```$ rspec ```
-    7- run rails server and visit http://localhost:3000 in browser
-        ```$ rails server```
+
+<br>
+2-Setup ENV or update database credentials in database.yml
+<br>
+3- Create database
+<br>
+```$ rails db:create```
+<br>
+4- Migrate database
+ <br>
+```$ rails db:migrate```
+<br>
+5- Seed database
+<br>
+```$ rails db:seed```
+ <br>
+6- run specs
+<br>
+```$ rspec ```
+<br>
+7- run rails server and visit http://localhost:3000 in browser
+<br>
+
+```$ rails server```
+<br>
+
 Note:
 To run rake task for dispatching emails to users pass following command 
-```$ rake emails:
+```$ rake emails:TopTaggedBooks
 
 
     
