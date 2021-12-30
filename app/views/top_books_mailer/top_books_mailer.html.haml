@@ -1,0 +1,5 @@
+Here are the most tagged books
+%table.table.table-bordered
+  - @top_books.each do |book|
+    %tr
+      %td= book.title

@@ -1,0 +1,22 @@
+- content_for(:body_attributes) do
+  data-turbolinks="false"
+.row.m-4
+  .col-6
+    %h1 Tags
+  .col-6.justify-content-end.text-right
+    = link_to 'Back To Books', books_path, class: 'btn btn-info m-4', 'data-turbolinks': "false"
+.row.m-4
+  .col-12
+    = form_with(url: update_tags_books_path, method: :post, local: true) do |form|
+      = form.label :tag_list
+      = form.text_field :tag_list,value: Tag.names.join(','),'data-role': 'tagsinput'
+      %hr/
+      = form.label :books_to_assign_label
+      %table.table.table-bordered.table-sm
+        - @objects.each do |object|
+          %tr
+            %td
+              = label_tag :taggables, object
+            %td= object.description
+            %td= check_box_tag 'taggables[]', object.id, false
+      = form.submit
