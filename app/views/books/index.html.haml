@@ -5,29 +5,29 @@
   .col-6.justify-content-end.text-right
     = link_to 'New Book', new_book_path, class: 'btn btn-info m-4'
     = link_to 'Mange Taggings', tagging_books_path, class: 'btn btn-info m-4', 'data-turbolinks': "false"
-= search_form_for @q do |f|
+= form_with url: books_path, method: :get,local: true do |f|
   .row
     .col-md-2
       .form-group
         = f.label :title_cont
-        = f.search_field :title_cont, class: 'form-control'
+        = f.search_field :title_cont, value: params[:title_cont], class: 'form-control'
     .col-md-4
       .row
         .col-md-6
           .form-group
             = f.label :price_greater_than
-            = f.number_field :price_gteq, class: 'form-control'
+            = f.number_field :price_gteq, value: params[:price_gteq],  class: 'form-control'
         .col-md-6
           .form-group
             = f.label :price_less_than
-            = f.number_field :price_lteq, class: 'form-control'
+            = f.number_field :price_lteq, value: params[:price_lteq], class: 'form-control'
     .col-md-4
       .form-group
         = f.label :Tags
-        = f.text_field :tags_name_in, value: params.dig(:q, :tags_name_in)&.join(','), class: 'form-control','data-role': 'tagsinput'
+        = f.text_field :tags_name_in, value: params.dig(:tags_name_in)&.join(','), class: 'form-control','data-role': 'tagsinput'
     .col-md-2
       .form-group.mt-4
-        = f.submit class: 'btn btn-primary form-control'
+        = f.submit :search, class: 'btn btn-primary form-control'
 %table.table
   %thead
     %tr

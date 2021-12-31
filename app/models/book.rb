@@ -3,6 +3,7 @@
 class Book < ApplicationRecord
   include Taggable
   include Uuid
+  include BookFilters
 
   validates :title, presence: true
   validates :uuid, presence: true, on: :save

@@ -5,9 +5,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   def index
-    params[:q][:tags_name_in] = params.dig(:q, :tags_name_in).split(',') if params.dig(:q, :tags_name_in)
-    @q = Book.ransack(params[:q])
-    @books = @q.result(distinct: true).includes(:tags)
+    params[:tags_name_in] = params[:tags_name_in].split(',') if params[:tags_name_in]
+    @books = Book.build_filters(params).all
   end
 
   def show; end
